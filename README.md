@@ -8,6 +8,7 @@ Bu işlemi yapan python scriptini yukarı bıraktım. İndirip şu komut ile ça
 ```bash
 python split.py --train 80 --validation 10 --test 10 --folder dataset --dest brain_tumor_dataset
 ```
+![MasterHead](https://github.com/VeliYarar/Brain-Tumor-Detection-with-YOLOv8/blob/main/dataset%20ay%C4%B1rma.png)
 Bu komutta bulunan folder kısmı dataseti okucağımız dosyayı veriyoruz dest kısmında ise ayrılmış dataseti kaydedeceğimiz dosya adının veriyoruz.
 Datasetimizdeki resimlerin %80 'nini eğitim, %10 'nunu test ve %10 'nu validation olmak üzere üçe bu kod yardımı ile ayırıyoruz.
 ## Adıım 2: Dosya Düzenleme
@@ -37,10 +38,15 @@ Anaconda prompt kullanarak eğitim işlemini gerçekleştireceğiz. Cuda cudnn k
 ```
 Bu komut ile environments değişikliği yapalım. 
 cd komutu ile yolo dizinine ardından data dosyasının içinde bulunduğu dizine gelelim.
+![MasterHead](https://github.com/VeliYarar/Brain-Tumor-Detection-with-YOLOv8/blob/main/e%C4%9Fitim%20ba%C5%9Flatma.png)
+
 
 ```bash
 yolo detect train model=yolov8n.pt data=data/config.yaml imgsz=640 epochs=10 name=yolov8_tumor_detection
 ```
+![MasterHead](https://github.com/VeliYarar/Brain-Tumor-Detection-with-YOLOv8/blob/main/e%C4%9Fitim.png)
+![MasterHead](https://github.com/VeliYarar/Brain-Tumor-Detection-with-YOLOv8/blob/main/e%C4%9Fitim2.png)
+
 Bu komut ile eğitimi başlatalım. Komutta bulunan epochs değeri arttıkça eğitim süresi uzar ama kalite artar.
 ## Adım 4: Prediction
 ```bash
