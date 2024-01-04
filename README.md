@@ -30,3 +30,20 @@ names: ["Tumor"]
 path datasetimizin bukunduğu dizin; train, test ve val'a ise ayırma işlemi yaptığımız dataset içindeki klasör yolları verilmelidir. names ise class yani detect yaptığımız nesne adıdır.
 
 ## Adım 4: Eğitim
+Anaconda prompt kullanarak eğitim işlemini gerçekleştireceğiz. Cuda cudnn kurulum işlemi yapılırken [linkte](https://github.com/VeliYarar/CUDA-ve-CuDNN-Windowsa-nasil-kurulur) paylaşınlan adımları izlerseniz sorun yaşamazsınız.
+
+```bash
+ conda activate yolov8-gpu
+```
+Bu komut ile environments değişikliği yapalım. 
+cd komutu ile yolo dizinine ardından data dosyasının içinde bulunduğu dizine gelelim.
+
+```bash
+yolo detect train model=yolov8n.pt data=data/config.yaml imgsz=640 epochs=10 name=yolov8_tumor_detection
+```
+Bu komut ile eğitimi başlatalım. Komutta bulunan epochs değeri arttıkça eğitim süresi uzar ama kalite artar.
+## Adım 4: Prediction
+```bash
+yolo detect predict model=runs/detect/yolov8_brain_tumor_detect/weights/best.pt source=inference save=True
+```
+Bu komut ile eğitim sonucunda oluşan modeli test edebiliriz. Eğitim bittiğimnde data dosyasının yanına runs adında dosya oluşacaktır. Model dosyamıza burdan  ulaşabiliriz.
