@@ -44,12 +44,18 @@ cd komutu ile yolo dizinine ardından data dosyasının içinde bulunduğu dizin
 ```bash
 yolo detect train model=yolov8n.pt data=data/config.yaml imgsz=640 epochs=10 name=yolov8_tumor_detection
 ```
+Bu komut ile eğitimi başlatalım. Komutta bulunan epochs değeri arttıkça eğitim süresi uzar ama kalite artar.
 ![MasterHead](https://github.com/VeliYarar/Brain-Tumor-Detection-with-YOLOv8/blob/main/e%C4%9Fitim.png)
 ![MasterHead](https://github.com/VeliYarar/Brain-Tumor-Detection-with-YOLOv8/blob/main/e%C4%9Fitim2.png)
 
-Bu komut ile eğitimi başlatalım. Komutta bulunan epochs değeri arttıkça eğitim süresi uzar ama kalite artar.
 ## Adım 4: Prediction
 ```bash
 yolo detect predict model=runs/detect/yolov8_brain_tumor_detect/weights/best.pt source=inference save=True
 ```
 Bu komut ile eğitim sonucunda oluşan modeli test edebiliriz. Eğitim bittiğimnde data dosyasının yanına runs adında dosya oluşacaktır. Model dosyamıza burdan  ulaşabiliriz.
+## SONUÇ
+![MasterHead](https://github.com/VeliYarar/Brain-Tumor-Detection-with-YOLOv8/blob/main/691.jpg)
+![MasterHead](https://github.com/VeliYarar/Brain-Tumor-Detection-with-YOLOv8/blob/main/739.jpg)
+![MasterHead](https://github.com/VeliYarar/Brain-Tumor-Detection-with-YOLOv8/blob/main/741.jpg)
+
+
